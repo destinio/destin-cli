@@ -15,7 +15,7 @@ console.log(`
 🎲 Play board games
 🍝 Cook amazing meals
 📖 Read
-☯️ Practice Zen
+☯️  Practice Zen
 `);
 console.log(chalk.bold.yellow('🌱 I’m currently learning'));
 console.log(`
@@ -23,7 +23,7 @@ Rails - https://github.com/destinio/rails-demo
 `);
 console.log(chalk.bold.yellow('🔭 I’m currently working on'));
 console.log(`
-- Learning the ways of the Fullstack Dev
+Learning the ways of the Fullstack Dev
 `);
 console.log(chalk.bold.yellow('⚡️ Fun facts'));
 console.log(`
