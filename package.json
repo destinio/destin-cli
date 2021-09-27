@@ -1,9 +1,9 @@
 {
-  "name": "destinlee",
+  "name": "destin",
   "version": "0.1.0",
   "description": "A CLI for the resume of Destin Lee",
   "bin": {
-    "destinlee": "./index.js"
+    "destin": "./index.js"
   },
   "main": "index.js",
   "scripts": {
