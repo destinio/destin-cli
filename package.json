@@ -13,11 +13,17 @@
     "type": "git",
     "url": "git+https://github.com/destinio/resume.git"
   },
-  "keywords": [],
+  "keywords": [
+    "destin",
+    "cli",
+    "node",
+    "npm",
+    "resume"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/destinio/resume/issues"
   },
-  "homepage": "https://github.com/destinio/resume#readme"
+  "homepage": "https://destin.io"
 }
