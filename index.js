@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import { clear } from './utils/clear.js';
+
+clear();
 
 console.log(`
 Hello, I'm Destin 👋
