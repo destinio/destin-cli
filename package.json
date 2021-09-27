@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/destinio/resume/issues"
   },
-  "homepage": "https://destin.io"
+  "homepage": "https://destin.io",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
 }
