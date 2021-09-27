@@ -33,3 +33,5 @@ Father of two 👨‍👩‍👦‍👦
 I can solve a Rubix Cube in under a minute
 Kicked cancer's ass and have been cancer free for two years 🩸
 `);
+
+export { clear };
