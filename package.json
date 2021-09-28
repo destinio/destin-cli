@@ -1,7 +1,7 @@
 {
   "name": "destin",
   "version": "0.3.0",
-  "description": "A CLI for the resume of Destin Lee",
+  "description": "Learn more about Destin Lee `npx destin`",
   "bin": {
     "destin": "./index.js"
   },
