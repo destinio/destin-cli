@@ -3,12 +3,11 @@
   "version": "0.3.0",
   "description": "Learn more about Destin Lee `npx destin`",
   "bin": {
-    "destin": "./dist/index.js"
+    "destin": "./index.js"
   },
   "type": "module",
-  "main": "dist/index.js",
+  "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "ts": "tsc",
     "ts:dev": "tsc --watch"
   },
