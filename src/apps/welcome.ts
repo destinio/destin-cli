@@ -1,14 +1,14 @@
 import { clear } from '../utils/clear.js';
 import { log } from '../utils/log.js';
 
-import chalk from 'chalk';
+import { bold } from 'chalk';
 /**
  * Main Welcome app
  */
 function welcome() {
   clear();
   // WELCOME
-  log(chalk.cyan.bold("\n\n\nHello, I'm Destin 👋"));
+  log(bold.cyanBright("\n\n\nHello, I'm Destin 👋"));
   log(`
   I'm a Software Developer. Talent Manager. Code Whisperer
 
@@ -19,7 +19,7 @@ function welcome() {
   `);
 
   // FREE TIME
-  log(chalk.bold.yellow('In my free time I:'));
+  log(bold.yellow('In my free time I:'));
   log(`
   👨‍👩‍👦‍👦 Hang with the familee
   🎲 Play board games
@@ -29,19 +29,19 @@ function welcome() {
   `);
 
   // LEARNING
-  log(chalk.bold.yellow('🌱 I’m currently learning'));
+  log(bold.yellow('🌱 I’m currently learning'));
   log(`
   Rails - https://github.com/destinio/rails-demo
   `);
 
   // WORKING ON
-  log(chalk.bold.yellow('🔭 I’m currently working on'));
+  log(bold.yellow('🔭 I’m currently working on'));
   log(`
   Learning the ways of the Fullstack Dev
   `);
 
   // FUN FACTS
-  log(chalk.bold.yellow('⚡️ Fun facts'));
+  log(bold.yellow('⚡️ Fun facts'));
   log(`
   Currenly reading through the extended Dark Tower series (currently on Wolves of the Calla) 🐺
   Father of two 👨‍👩‍👦‍👦
@@ -50,7 +50,7 @@ function welcome() {
   \n`);
 
   // FARWELL
-  log(chalk.bold.redBright('More soon 😎\n\n✌️\n'));
+  log(bold.redBright('More soon 😎\n\n✌️\n'));
 }
 
 export { welcome };
