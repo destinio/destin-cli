@@ -1,6 +1,6 @@
 {
   "name": "destin",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A CLI for the resume of Destin Lee",
   "bin": {
     "destin": "./index.js"
@@ -21,10 +21,10 @@
     "npm",
     "resume"
   ],
-  "author": "",
+  "author": "Destin Lee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/destinio/resume/issues"
+    "url": "https://github.com/destinio/destin/issues"
   },
   "homepage": "https://destin.io",
   "dependencies": {
