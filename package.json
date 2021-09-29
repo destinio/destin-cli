@@ -6,6 +6,7 @@
     "destin": "./index.js"
   },
   "main": "./index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "ts": "tsc",
     "ts:dev": "tsc --watch"
