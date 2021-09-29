@@ -20,4 +20,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 # NOTES
 # https://sergiodxa.com/articles/github-actions-npm-publish
-# huummmmmmm
