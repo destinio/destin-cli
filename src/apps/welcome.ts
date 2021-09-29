@@ -3,7 +3,7 @@ import { log } from '../utils/log.js';
 
 import { bold } from 'chalk';
 /**
- * Main Welcome app
+ * #### Main Welcome app
  */
 function welcome() {
   clear();
