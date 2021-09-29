@@ -1,3 +1,5 @@
+[![Publish NPM](https://github.com/destinio/destin/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/destinio/destin/actions/workflows/main.yml)
+
 # 👋 Welcome to the `destin` resume CLI
 
 `npx destin` 🚀
