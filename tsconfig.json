@@ -2,16 +2,16 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "allowJs": true,
-    "target": "es5",
-    "strict": false,
-    "noImplicitAny": true,
-    // "module": "CommonJS",
     "moduleResolution": "node",
+    "target": "es5",
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true /* Generates corresponding '.map' file. */,
-    "declaration": true /* Generates corresponding '.d.ts' file. */,
-    "declarationMap": true /* Generates a sourcemap for each corresponding '.d.ts' file. */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
 }
