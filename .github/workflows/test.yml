@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Have fun
-        run: echo test coming soon
+        run: yarn test

@@ -9,7 +9,8 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "ts": "tsc && chmod +x ./dist/index.js",
-    "ts:dev": "tsc --watch"
+    "ts:dev": "tsc --watch",
+    "test": "echo HELLO FROM TEST"
   },
   "repository": {
     "type": "git",
