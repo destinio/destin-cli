@@ -11,4 +11,4 @@ jobs:
         id: check
         uses: EndBug/version-check@v1
       - name: Do Something with the data
-        run: echo ${{steps.check}}
+        run: echo ${{steps.check.outputs.changed}}
