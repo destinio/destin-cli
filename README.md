@@ -1,17 +1,11 @@
-# 👋 Welcome to the `destin` resume CLI
+# `npx destin`
 
-`npx destin` 🚀
+Learn more about Destin Lee using your command line
 
-## Intro
+## Usage
 
-This is only the start of something amazing
-👉 https://destin.io
+To get started run the following command:
 
-## Install or Run
-
-To start the interactive `destin` cli run `npx destin` in your console
-
-## Version
-
-- 0.3.0 - New log mapping and new Readme info
-- 0.2.3 - GitHub Actions YO!!!!!
+```sh
+npx destin
+```
