@@ -69,3 +69,16 @@ export function links(items: ListItem[]) {
     log(`${chalk.bgHex(i.hex).hex(blackHex).bold(` ${i.text} `)} ${chalk.italic.dim(i.link)}`);
   });
 }
+
+/**
+ *
+ * @param items string array - array of strings to display as list
+ * ####
+ * @example
+ * ```
+ * ['item1', 'item2', 'item3']
+ * ```
+ */
+export function list(items: string[]) {
+  items.forEach(i => log(i));
+}
