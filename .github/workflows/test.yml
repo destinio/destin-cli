@@ -10,5 +10,9 @@ jobs:
           file-url: https://unpkg.com/destin/package.json
         id: check
         uses: EndBug/version-check@v1
-      - name: Do Something with the data
+      - name: The verison has changed
+        if: steps.check.outputs.changed == 'true'
         run: echo ${{steps.check.outputs.changed}}
+      - name: No change
+        if: steps.check.outputs.changed == 'false'
+        run: echo NO CHANGE
