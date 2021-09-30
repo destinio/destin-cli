@@ -6,13 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check if version has been updated
+        id: results
         with:
           file-url: https://unpkg.com/destin/package.json
-        id: check
         uses: EndBug/version-check@v1
+
       - name: The verison has changed
-        if: steps.check.outputs.changed == 'true'
+        if: steps.results.outputs.changed != 0
         run: echo ${{steps.check.outputs.changed}}
       - name: No change
-        if: steps.check.outputs.changed == 'false'
+        if: steps.results.outputs.changed == 0
         run: echo NO CHANGE
