@@ -1,17 +1,18 @@
 import { clear } from '../utils/clear.js';
 import { log } from '../utils/log.js';
 
-import { h1 } from '../utils/chalk';
-import { greenHex } from '../utils/colors.js';
+import { header, links } from '../utils/semantics';
+import { greenHex } from '../utils/colors';
 
 /**
  * Main welcome functions - start
  */
 function welcome() {
   clear();
-  h1('Welcome to the Destin Lee Resume CLI');
+  header('Welcome to the Destin Lee Resume CLI');
   log(`I'm a Software Developer. Talent Manager. Code Whisperer`);
-  h1('You can learn more at the following sites', greenHex);
+  header('You can learn more at the following sites', greenHex);
+  links([{ text: 'GitHub', link: 'https://github.com/destinio', hex: greenHex }]);
 }
 
 export { welcome };
