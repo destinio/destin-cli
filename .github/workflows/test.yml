@@ -1,0 +1,14 @@
+name: testing Things
+on: ['pull_request']
+jobs:
+  testOne:
+    name: testName
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if version has been updated
+        with:
+          file-url: https://unpkg.com/destin/package.json
+        id: check
+        uses: EndBug/version-check@v1
+      - name: Do Something with the data
+        run: echo ${{steps.check}}
