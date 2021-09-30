@@ -1,0 +1,9 @@
+name: Run tests
+on: ['pull_request']
+jobs:
+  Test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Have fun
+        run: echo test coming soon

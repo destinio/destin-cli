@@ -1,0 +1,26 @@
+name: Publish NPM
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build JS from TS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out REPO
+        uses: actions/checkout@v2
+      - name: Setup NODE
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: https://registry.npmjs.org
+      - name: INSTALL DEPS
+        run: yarn
+      - name: BUILD JS
+        run: yarn ts
+      - name: PUBLISH to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
