@@ -1,4 +1,3 @@
-// ALL MY COLORS ALL THEMS
 export const blackHex = '#000000';
 export const blueHex = '#00A7FF';
 export const greenHex = '#77BC65';
