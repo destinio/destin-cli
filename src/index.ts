@@ -10,15 +10,17 @@ async function program() {
     clear();
     welcomeHandler();
 
-    const prog = await prompt([
+    const { main } = await prompt([
       {
         type: 'list',
         name: 'main',
         message: 'What would you like to do?',
-        choices: ['welcome', 'ts', 'exit'],
+        choices: ['welcome', 'ts', 'dots', 'exit'],
         default: 'exit',
       },
     ]);
+
+    appHandler(main);
   }
 }
 

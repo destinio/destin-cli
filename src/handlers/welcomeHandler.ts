@@ -33,9 +33,9 @@ function welcomeHandler() {
   header(`Currently working on:`, yellowHex);
   list(['JS CLI automation']);
   header(`Currently learning:`, orangeHex);
-  list(['Ruby on Rails']);
-  header(`More CLI tools comming soon`, redHex);
+  list(['Advanced TypeScript']);
   log('');
+  header('If you need and free resources see below:');
 }
 
 export { welcomeHandler };

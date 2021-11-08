@@ -1,15 +1,18 @@
+import { clear } from 'console';
 import { prompt } from 'inquirer';
+import { welcomeHandler } from './welcomeHandler';
 
 /**
- * Takes in process.argv[2], first input after app name
- * @param argv string - process.argv[2]
+ *
+ * @param arg string
  */
-async function appHandler(argv: String) {
-  switch (argv) {
-    case '-h':
-      console.log('help');
+async function appHandler(arg: String) {
+  switch (arg) {
+    case 'welcome':
+      clear();
+      welcomeHandler();
       break;
-    case '-t':
+    case 'ts':
       const main = await prompt([
         {
           type: 'list',
@@ -22,7 +25,6 @@ async function appHandler(argv: String) {
       console.log(main);
       break;
     default:
-      console.log(`${argv} is not an options`);
       break;
   }
 }
