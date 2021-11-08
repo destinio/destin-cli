@@ -1,27 +1,15 @@
 #!/usr/bin/env node
 
-import { prompt } from 'inquirer';
-import { welcome } from './apps/welcome';
+import { appHandler } from './handlers/appHandler';
+import { welcomeHandler } from './handlers/welcomeHandler';
 import { clear } from './utils/clear';
-import { header } from './utils/semantics';
 
-async function program() {
-  clear();
-
+function program() {
   if (!process.argv[2]) {
     clear();
-    welcome();
+    welcomeHandler();
   } else {
-    const main = await prompt([
-      {
-        type: 'list',
-        name: 'ts',
-        message: 'What kinda ts thinger you wantz?',
-        choices: ['node', 'react'],
-      },
-    ]);
-
-    console.log(main);
+    appHandler(process.argv[2]);
   }
 }
 
