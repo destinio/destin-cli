@@ -23,6 +23,11 @@ import { mainHandler } from './handlers/mainHandler.js'
   const mainCli = meow(helperText, {
     importMeta: import.meta,
     flags: {
+      welcome: {
+        type: 'boolean',
+        default: true,
+        alias: '2',
+      },
       ts: {
         type: 'boolean',
         default: false,
@@ -31,11 +36,9 @@ import { mainHandler } from './handlers/mainHandler.js'
     },
   })
 
-  const flags = Object.keys(mainCli.flags).length === 0 ? false : mainCli.flags
-
-  if (!flags) {
+  if (mainCli.flags.welcome) {
     mainHandler()
   } else {
-    flagsHandler(flags)
+    flagsHandler(mainCli.flags)
   }
 })()
