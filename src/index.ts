@@ -1,27 +1,28 @@
 #!/usr/bin/env node
 
-// WELCOME APP
+import { prompt } from 'inquirer';
 import { welcome } from './apps/welcome';
-import { Command } from 'commander';
 import { clear } from './utils/clear';
-import chalk = require('chalk');
 import { header } from './utils/semantics';
 
-const program = new Command();
+async function program() {
+  clear();
 
-program.version('0.1.0');
-
-program.option('-t, --ts', 'create tsconfig thingers');
-
-program.parse(process.argv);
-
-if (!process.argv[2]) {
-  welcome();
-} else {
-  const { ts } = program.opts();
-
-  if (ts) {
+  if (!process.argv[2]) {
     clear();
-    header(` Welcome to the TS app `);
+    welcome();
+  } else {
+    const main = await prompt([
+      {
+        type: 'list',
+        name: 'ts',
+        message: 'What kinda ts thinger you wantz?',
+        choices: ['node', 'react'],
+      },
+    ]);
+
+    console.log(main);
   }
 }
+
+program();

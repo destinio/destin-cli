@@ -7,8 +7,6 @@ prompts
 ## Tools of the CLI Trade
 
 - inquirer- for complex input prompts
-- commander
-- meow or arg - basic argument parsing
 
 - email-prompt - convenient email input prompts
 - chalk - colored output
