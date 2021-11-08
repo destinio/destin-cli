@@ -1,6 +1,6 @@
 {
   "name": "destin",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Learn more about Destin Lee `npx destin`",
   "bin": {
     "destin": "./dist/index.js"
@@ -8,7 +8,7 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "ts": "tsc && chmod +x ./dist/index.js",
+    "ts:build": "tsc && chmod +x ./dist/index.js",
     "ts:dev": "tsc --watch",
     "dev": "node ./dist/index.js"
   },
