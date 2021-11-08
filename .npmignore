@@ -4,3 +4,4 @@ src/
 *.lock
 tsconfig.json
 TODO.md
+CODE-OF-CONDUCT.md

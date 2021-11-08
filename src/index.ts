@@ -1,27 +1,34 @@
 #!/usr/bin/env node
 
-import { prompt } from 'inquirer';
-import { appHandler } from './handlers/appHandler';
-import { welcomeHandler } from './handlers/welcomeHandler';
-import { clear } from './utils/clear';
+import { prompt } from 'inquirer'
+import { appHandler } from './handlers/appHandler'
+import { welcomeHandler } from './handlers/welcomeHandler'
+import { clear } from './utils/clear'
 
-async function program() {
-  if (!process.argv[2]) {
-    clear();
-    welcomeHandler();
+async function mainHandler() {
+  const { main } = await prompt([
+    {
+      type: 'list',
+      name: 'main',
+      message: 'Looking for more?',
+      choices: ['exit', 'yes'],
+      default: 'exit',
+    },
+  ])
 
-    const { main } = await prompt([
-      {
-        type: 'list',
-        name: 'main',
-        message: 'What would you like to do?',
-        choices: ['exit', 'ts', 'dots', 'welcome'],
-        default: 'exit',
-      },
-    ]);
-
-    appHandler(main);
+  if (main === 'yes') {
+    appHandler()
   }
 }
 
-program();
+async function program() {
+  if (!process.argv[2]) {
+    clear()
+    welcomeHandler()
+    mainHandler()
+  } else {
+    mainHandler()
+  }
+}
+
+program()
