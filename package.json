@@ -1,6 +1,6 @@
 {
   "name": "destin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Learn more about Destin Lee `npx destin`",
   "bin": {
     "destin": "./dist/index.js"
