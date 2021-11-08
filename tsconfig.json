@@ -1,18 +1,29 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "target": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es5",
-    "allowJs": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2017", "ESNext"],
+    "outDir": "./dist",
+
+    // "removeComments": true,
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "resolveJsonModule": true
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": false,
+    "noImplicitReturns": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */
+
+    /* Advanced Options */
+    // "skipLibCheck": true,                           /* Skip type checking of declaration files. */
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": ["./src/**/*.ts"]
 }
