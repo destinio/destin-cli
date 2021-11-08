@@ -1,15 +1,24 @@
 #!/usr/bin/env node
 
+import { prompt } from 'inquirer';
 import { appHandler } from './handlers/appHandler';
 import { welcomeHandler } from './handlers/welcomeHandler';
 import { clear } from './utils/clear';
 
-function program() {
+async function program() {
   if (!process.argv[2]) {
     clear();
     welcomeHandler();
-  } else {
-    appHandler(process.argv[2]);
+
+    const prog = await prompt([
+      {
+        type: 'list',
+        name: 'main',
+        message: 'What would you like to do?',
+        choices: ['welcome', 'ts', 'exit'],
+        default: 'exit',
+      },
+    ]);
   }
 }
 
