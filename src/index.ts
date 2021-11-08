@@ -15,7 +15,7 @@ async function program() {
         type: 'list',
         name: 'main',
         message: 'What would you like to do?',
-        choices: ['welcome', 'ts', 'dots', 'exit'],
+        choices: ['exit', 'ts', 'dots', 'welcome'],
         default: 'exit',
       },
     ]);
