@@ -5,7 +5,8 @@
   "bin": {
     "destin": "./dist/index.js"
   },
-  "main": "./dist/index.js",
+  "type": "module",
+  "exports": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "ts:build": "tsc && chmod +x ./dist/index.js",
@@ -34,7 +35,7 @@
     "chalk": "^4.1.2",
     "commander": "^8.3.0",
     "inquirer": "^8.2.0",
-    "yargs": "^17.2.1"
+    "meow": "^10.1.1"
   },
   "devDependencies": {
     "@types/inquirer": "^8.1.3",

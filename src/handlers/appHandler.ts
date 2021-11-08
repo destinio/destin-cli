@@ -1,9 +1,9 @@
 import { clear } from 'console'
-import { prompt } from 'inquirer'
-import { welcomeHandler } from './welcomeHandler'
+import inquirer from 'inquirer'
+import { welcome } from '../utils/welcome.js'
 
 async function appHandler() {
-  const { main } = await prompt([
+  const { main } = await inquirer.prompt([
     {
       type: 'list',
       name: 'main',
@@ -15,7 +15,7 @@ async function appHandler() {
 
   switch (main) {
     case 'ts':
-      const main = await prompt([
+      const main = await inquirer.prompt([
         {
           type: 'list',
           name: 'ts',

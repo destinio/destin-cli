@@ -1,25 +1,25 @@
-import * as chalk from 'chalk';
-import { log } from './log';
-import { blackHex, blueHex, greenHex, redHex } from './colors';
+import chalk from 'chalk'
+import { log } from './log.js'
+import { blackHex, blueHex, greenHex, redHex } from './colors.js'
 
 // Quick chalk exports - standard colors
 
 /**
  * Quick chalk blue using blueHex from utils/colors
  */
-export const blue = chalk.hex(blueHex);
+export const blue = chalk.hex(blueHex)
 /**
  * Quick chalk green using greenHex from utils/colors
  */
-export const green = chalk.hex(greenHex);
+export const green = chalk.hex(greenHex)
 /**
  * Quick chalk red using redHex from utils/colors
  */
-export const red = chalk.hex(redHex);
+export const red = chalk.hex(redHex)
 
 // Quick chalk exports - background colors
 
-export const blueBg = chalk.bgHex(blueHex).hex('#000000');
+export const blueBg = chalk.bgHex(blueHex).hex('#000000')
 
 // Semantics
 
@@ -29,9 +29,9 @@ export const blueBg = chalk.bgHex(blueHex).hex('#000000');
  * @param hex  string - hex color to display text in - see utils/colors
  */
 export function header(text: string, hex = blueHex) {
-  log('');
-  log(chalk.bgHex(hex).hex('#000000').bold(` ${text} `));
-  log('');
+  log('')
+  log(chalk.bgHex(hex).hex('#000000').bold(` ${text} `))
+  log('')
 }
 
 /**
@@ -39,16 +39,16 @@ export function header(text: string, hex = blueHex) {
  * @param content string - text to be displayed to the user in a dim style;
  */
 export function sectionDim(content: string) {
-  log(chalk.dim(content));
+  log(chalk.dim(content))
 }
 
 /**
  * Used form links display
  */
 interface ListItem {
-  text: string;
-  link: string;
-  hex: string;
+  text: string
+  link: string
+  hex: string
 }
 
 /**
@@ -66,8 +66,8 @@ interface ListItem {
  */
 export function links(items: ListItem[]) {
   items.forEach(i => {
-    log(`${chalk.bgHex(i.hex).hex(blackHex).bold(` ${i.text} `)} ${chalk.italic.dim(i.link)}`);
-  });
+    log(`${chalk.bgHex(i.hex).hex(blackHex).bold(` ${i.text} `)} ${chalk.italic.dim(i.link)}`)
+  })
 }
 
 /**
@@ -80,5 +80,5 @@ export function links(items: ListItem[]) {
  * ```
  */
 export function list(items: string[]) {
-  items.forEach(i => log(i));
+  items.forEach(i => log(i))
 }

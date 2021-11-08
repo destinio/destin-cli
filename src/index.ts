@@ -1,34 +1,25 @@
 #!/usr/bin/env node
+import meow from 'meow'
+import { flagsHandler } from './handlers/flagsHandler.js'
+import { mainHandler } from './handlers/mainHandler.js'
+/**
+ * npx destin
+ * @author Destin Lee
+ *
+ * Learn more at https://destin.io
+ */
+;(async function () {
+  const helperText = `Helper Text`
 
-import { prompt } from 'inquirer'
-import { appHandler } from './handlers/appHandler'
-import { welcomeHandler } from './handlers/welcomeHandler'
-import { clear } from './utils/clear'
+  const mainCli = meow(helperText, {
+    importMeta: import.meta,
+  })
 
-async function mainHandler() {
-  const { main } = await prompt([
-    {
-      type: 'list',
-      name: 'main',
-      message: 'Looking for more?',
-      choices: ['exit', 'yes'],
-      default: 'exit',
-    },
-  ])
+  const flags = Object.keys(mainCli.flags).length === 0 ? false : mainCli.flags
 
-  if (main === 'yes') {
-    appHandler()
-  }
-}
-
-async function program() {
-  if (!process.argv[2]) {
-    clear()
-    welcomeHandler()
+  if (!flags) {
     mainHandler()
   } else {
-    mainHandler()
+    flagsHandler(flags)
   }
-}
-
-program()
+})()

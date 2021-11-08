@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "es2020",
     "moduleResolution": "node",
-    "lib": ["ES2017", "ESNext"],
+    "lib": ["ES2017", "ES2020", "ESNext"],
     "outDir": "./dist",
 
     // "removeComments": true,
@@ -14,7 +14,7 @@
     "noImplicitThis": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true,
 
     /* Experimental Options */
