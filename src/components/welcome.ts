@@ -1,8 +1,8 @@
-import { clear } from './clear.js'
-import { log } from './log.js'
+import { clear } from '../utils/clear.js'
+import { log } from '../utils/log.js'
 
-import { header, links, list } from './semantics.js'
-import { blueHex, greenHex, orangeHex, redHex, yellowHex } from './colors.js'
+import { header, links, list } from '../utils/semantics.js'
+import { blueHex, greenHex, orangeHex, redHex, yellowHex } from '../utils/colors.js'
 
 const myLinks = [
   { text: 'Website', link: '\thttps://destin.io', hex: orangeHex },

@@ -9,10 +9,26 @@ import { mainHandler } from './handlers/mainHandler.js'
  * Learn more at https://destin.io
  */
 ;(async function () {
-  const helperText = `Helper Text`
+  const helperText = `
+    Usage:
+      npx destin [option]
+
+    Options:
+      --ts, -t      Helpful Typescript resources
+
+    Examples:
+      npx destin --ts
+  `
 
   const mainCli = meow(helperText, {
     importMeta: import.meta,
+    flags: {
+      ts: {
+        type: 'boolean',
+        default: false,
+        alias: 't',
+      },
+    },
   })
 
   const flags = Object.keys(mainCli.flags).length === 0 ? false : mainCli.flags
