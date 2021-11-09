@@ -1,5 +1,6 @@
-import { readFileSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import inquirer from 'inquirer'
+import { clear } from '../utils/clear.js'
 
 async function tsHandler() {
   const tsCli = await inquirer.prompt([
@@ -16,8 +17,17 @@ async function tsHandler() {
 
   switch (ts) {
     case 'node':
-      // const file = readFileSync()
-      console.log(process)
+      const filePath = process.cwd() + '/tsconfig.json'
+
+      if (existsSync(filePath)) {
+        console.log('already file')
+      } else {
+        console.log('create file')
+      }
+
+      // const file = readFileSync(filePath, { encoding: 'utf8' })
+      // clear()
+      // console.log(file)
       break
 
     default:
