@@ -1,9 +1,8 @@
-const tsConfig = JSON.stringify({
+const tsConfigNode = JSON.stringify({
   compilerOptions: {
     target: 'es6',
-    module: 'es2020',
+    module: 'commonjs',
     moduleResolution: 'node',
-    lib: ['ES2020', 'ESNext'],
     outDir: './dist',
     rootDir: './src',
 
@@ -33,4 +32,4 @@ const tsConfig = JSON.stringify({
   include: ['./src/**/*.ts', 'index.d.ts'],
 })
 
-export { tsConfig }
+export { tsConfigNode }

@@ -1,3 +1,3 @@
-import { tsConfig } from './tsFiles/tsconfig.js'
+import { tsConfigNode } from './tsFiles/tsconfigNode.js'
 
-export { tsConfig }
+export { tsConfigNode }

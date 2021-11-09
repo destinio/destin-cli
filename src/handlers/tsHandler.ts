@@ -1,6 +1,6 @@
 import { existsSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
-import { tsConfig } from '../files/index.js'
+import { tsConfigNode } from '../files/index.js'
 
 async function tsHandler() {
   const tsCli = await inquirer.prompt([
@@ -16,7 +16,7 @@ async function tsHandler() {
   const { ts } = tsCli
 
   function copyFile() {
-    writeFileSync(process.cwd() + '/tsconfig.json', tsConfig)
+    writeFileSync(process.cwd() + '/tsconfig.json', tsConfigNode)
   }
 
   switch (ts) {
