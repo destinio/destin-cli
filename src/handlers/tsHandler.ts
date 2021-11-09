@@ -16,7 +16,7 @@ async function tsHandler() {
   const { ts } = tsCli
 
   function copyFile() {
-    writeFileSync(process.cwd() + '/.tsconfig.json', tsConfig)
+    writeFileSync(process.cwd() + '/tsconfig.json', tsConfig)
   }
 
   switch (ts) {
