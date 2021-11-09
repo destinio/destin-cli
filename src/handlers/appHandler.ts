@@ -1,6 +1,4 @@
-import { clear } from 'console'
 import inquirer from 'inquirer'
-import { welcome } from '../components/welcome.js'
 import { tsHandler } from './tsHandler.js'
 
 async function appHandler() {
