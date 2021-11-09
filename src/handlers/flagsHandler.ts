@@ -1,5 +1,9 @@
+import { tsHandler } from './tsHandler.js'
+
 async function flagsHandler(flags: any) {
-  console.log(flags)
+  const { ts } = flags
+
+  ts && tsHandler()
 }
 
 export { flagsHandler }

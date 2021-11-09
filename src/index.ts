@@ -22,12 +22,8 @@ import { mainHandler } from './handlers/mainHandler.js'
 
   const mainCli = meow(helperText, {
     importMeta: import.meta,
+    booleanDefault: undefined,
     flags: {
-      welcome: {
-        type: 'boolean',
-        default: true,
-        alias: '2',
-      },
       ts: {
         type: 'boolean',
         default: false,
@@ -36,7 +32,20 @@ import { mainHandler } from './handlers/mainHandler.js'
     },
   })
 
-  if (mainCli.flags.welcome) {
+  const flags = mainCli.flags
+  let areFlag = false
+
+  // There should be a better way to see if no
+  // flags were set
+  for (const flag in flags) {
+    if (flags[flag]) {
+      areFlag = !areFlag
+    }
+  }
+
+  // if no flags run welcome handler with welcome
+  // message
+  if (!areFlag) {
     mainHandler()
   } else {
     flagsHandler(mainCli.flags)

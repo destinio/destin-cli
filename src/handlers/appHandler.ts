@@ -1,6 +1,7 @@
 import { clear } from 'console'
 import inquirer from 'inquirer'
 import { welcome } from '../components/welcome.js'
+import { tsHandler } from './tsHandler.js'
 
 async function appHandler() {
   const { main } = await inquirer.prompt([
@@ -15,16 +16,7 @@ async function appHandler() {
 
   switch (main) {
     case 'ts':
-      const main = await inquirer.prompt([
-        {
-          type: 'list',
-          name: 'ts',
-          message: 'What kinda ts thinger you wantz?',
-          choices: ['node', 'react'],
-        },
-      ])
-
-      console.log(main)
+      tsHandler()
       break
     default:
       break

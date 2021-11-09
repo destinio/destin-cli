@@ -3,9 +3,14 @@ import { clear } from '../utils/clear.js'
 import { appHandler } from './appHandler.js'
 import { welcome } from '../components/welcome.js'
 
+/**
+ * @function mainHandler
+ * @async
+ */
 async function mainHandler() {
   clear()
   welcome()
+
   const { main } = await inquirer.prompt([
     {
       type: 'list',

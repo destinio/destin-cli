@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "destinio.destinio-snips",
+    "ms-vscode.vscode-typescript-next",
+    "ritwickdey.liveserver",
+    "esbenp.prettier-vscode",
+    "ms-vscode.sublime-keybindings",
+    "vscode-icons-team.vscode-icons",
+    "jpoissonnier.vscode-styled-components"
+  ]
+}

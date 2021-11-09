@@ -35,7 +35,7 @@ function welcome() {
   header(`Currently learning:`, orangeHex)
   list(['Advanced TypeScript'])
   log('')
-  header('If you need and free resources see below:')
+  header('If you need any free resources see below:')
 }
 
 export { welcome }
