@@ -2,6 +2,8 @@ import inquirer from 'inquirer'
 import { clear } from '../utils/clear.js'
 import { appHandler } from './appHandler.js'
 import { welcome } from '../components/welcome.js'
+import os from 'os'
+import { existsSync } from 'fs'
 
 /**
  * @function mainHandler

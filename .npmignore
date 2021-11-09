@@ -2,6 +2,5 @@
 src/
 .git*
 *.lock
-tsconfig.json
 TODO.md
 CODE-OF-CONDUCT.md
