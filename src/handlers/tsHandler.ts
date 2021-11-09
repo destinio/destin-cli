@@ -1,5 +1,6 @@
-import { copyFileSync, existsSync } from 'fs'
+import { existsSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
+import { tsConfig } from '../files/index.js'
 
 async function tsHandler() {
   const tsCli = await inquirer.prompt([
@@ -14,19 +15,13 @@ async function tsHandler() {
 
   const { ts } = tsCli
 
-  const filePath = './tsconfig.json'
-
   function copyFile() {
-    try {
-      copyFileSync(filePath, process.cwd() + '/tsconfig.json')
-    } catch (error) {
-      console.log(error)
-    }
+    writeFileSync(process.cwd() + '/.tsconfig.json', tsConfig)
   }
 
   switch (ts) {
     case 'node':
-      if (existsSync(filePath)) {
+      if (existsSync('./tsconfig.json')) {
         const confirmOverride = await inquirer.prompt({
           type: 'confirm',
           name: 'confirm',
@@ -38,9 +33,6 @@ async function tsHandler() {
       } else {
         copyFile()
       }
-
-      // clear()
-      // console.log(file)
       break
 
     default:
