@@ -7,7 +7,7 @@ async function tsHandler() {
     {
       name: 'ts',
       type: 'list',
-      choices: ['node', 'react'],
+      choices: ['node'],
       message: 'Type of TsConfig',
       default: 'node',
     },

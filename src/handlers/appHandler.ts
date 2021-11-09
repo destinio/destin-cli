@@ -1,5 +1,6 @@
 import inquirer from 'inquirer'
 import { tsHandler } from './tsHandler.js'
+import { dotsHandler } from './dotHandlerHandler.js'
 
 async function appHandler() {
   const { main } = await inquirer.prompt([
@@ -15,6 +16,9 @@ async function appHandler() {
   switch (main) {
     case 'ts':
       tsHandler()
+      break
+    case 'dots':
+      dotsHandler()
       break
     default:
       break
