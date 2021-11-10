@@ -7,4 +7,15 @@ import { zshrc } from './zshrc.js'
 import { gitconfig } from './gitconfig.js'
 import { vimrc } from './vimrc.js'
 
-export { aliases, functions, gitignore, prettierrc, zshrc, editorconfig, gitconfig, vimrc }
+const dotfiles = {
+  aliases,
+  functions,
+  gitignore,
+  prettierrc,
+  zshrc,
+  editorconfig,
+  gitconfig,
+  vimrc,
+}
+
+export { dotfiles }

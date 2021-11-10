@@ -1,12 +1,15 @@
-import { writeFileSync } from 'fs'
+import chalk from 'chalk'
+import { existsSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
 
-import { editorconfig } from '../files/dots/index.js'
+import { dotfiles } from '../files/dots/index.js'
 
-const choices = ['editorconfig', 'aliases', 'functions']
+const choices = Object.keys(dotfiles)
 
 function copyFile(a: string, file: string) {
-  console.log(a)
+  console.log(
+    `${chalk.bold.hex('#91E47A').inverse(` Creating: `)} .${chalk.hex('#FFE774').bold(a)}`
+  )
   writeFileSync(`${process.cwd()}/.${a}`, file)
 }
 
@@ -21,20 +24,35 @@ async function dotsHandler() {
       name: 'options',
       choices,
       message: 'Which dotfiles would you like to copy?',
+      default: false,
     },
   ])) as AnswearType
 
   const { options } = answears
 
-  options.forEach(a => {
-    switch (a) {
-      case 'editorconfig':
-        console.log('creating editorconfig')
-        copyFile(a, editorconfig)
-        break
-      default:
-        console.log('Sorry that is not supported yet')
-        break
+  const optionsMap = new Map(Object.entries(dotfiles))
+
+  options.forEach(async (a: string) => {
+    const file = optionsMap.get(a)
+
+    if (existsSync(process.cwd() + `/.${a}`)) {
+      const confirm = await inquirer.prompt([
+        {
+          type: 'confirm',
+          name: 'override',
+          message: `.${a} already exists are you sure you want to override?`,
+        },
+      ])
+
+      const { override } = confirm
+
+      if (override) {
+        file ? copyFile(a, file) : console.log(`Error creating .${a}`)
+      } else {
+        console.log('have a good day')
+      }
+    } else {
+      file ? copyFile(a, file) : console.log(`Error creating .${a}`)
     }
   })
 }
