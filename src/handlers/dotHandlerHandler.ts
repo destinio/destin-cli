@@ -3,7 +3,7 @@ import inquirer from 'inquirer'
 
 import { editorconfig } from '../files/dots/index.js'
 
-const choices = ['editorconfig', 'zshrc', 'aliases', 'functions']
+const choices = ['editorconfig', 'aliases', 'functions']
 
 function copyFile(a: string, file: string) {
   console.log(a)
