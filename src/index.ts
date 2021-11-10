@@ -15,9 +15,11 @@ import { mainHandler } from './handlers/mainHandler.js'
 
     Options:
       --ts, -t      Helpful Typescript resources
+      --dots, -d    dotfiles for your home dir
 
     Examples:
       npx destin --ts
+      npx destin --dots
   `
 
   const mainCli = meow(helperText, {
@@ -28,6 +30,11 @@ import { mainHandler } from './handlers/mainHandler.js'
         type: 'boolean',
         default: false,
         alias: 't',
+      },
+      dots: {
+        type: 'boolean',
+        default: false,
+        alias: 'd',
       },
     },
   })
