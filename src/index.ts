@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import meow from 'meow'
+import { FlagsType } from '../index.js'
 import { flagsHandler } from './handlers/flagsHandler.js'
 import { mainHandler } from './handlers/mainHandler.js'
 /**

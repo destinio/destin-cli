@@ -6,16 +6,16 @@ import { blueHex, greenHex, orangeHex, redHex, yellowHex } from '../utils/colors
 
 const myLinks = [
   { text: 'Website', link: '\thttps://destin.io', hex: orangeHex },
+  { text: 'LinkedIn', link: '\thttps://www.linkedin.com/in/destinlee/', hex: blueHex },
   { text: 'GitHub', link: '\thttps://github.com/destinio', hex: greenHex },
   { text: 'CodePen', link: '\thttps://codepen.io/destinio', hex: yellowHex },
-  { text: 'LinkedIn', link: '\thttps://www.linkedin.com/in/destinlee/', hex: blueHex },
 ]
 
 const freeTime = [
   'Hang with the familee',
   'Play board games',
-  'Cook amazing meals',
-  'Read',
+  'Cook amazing meals (BBQ)',
+  'Read (The Dark Tower)',
   'Practice Zen',
 ]
 
@@ -31,7 +31,7 @@ function welcome() {
   header(`When I'm not working I like to:`)
   list(freeTime)
   header(`Currently working on:`, yellowHex)
-  list(['JS CLI automation'])
+  list(['JS CLI automation', 'NextJS Website'])
   header(`Currently learning:`, orangeHex)
   list(['Advanced TypeScript'])
   log('')
