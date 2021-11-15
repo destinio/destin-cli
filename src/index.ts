@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import meow from 'meow'
-import { FlagsType } from '../index.js'
-import { flagsHandler } from './handlers/flagsHandler.js'
-import { mainHandler } from './handlers/mainHandler.js'
+import { flagsHandler, mainHandler } from './handlers/index.js'
 /**
  * npx destin
  * @author Destin Lee
@@ -17,7 +15,7 @@ import { mainHandler } from './handlers/mainHandler.js'
     Options:
       --ts, -t      Helpful Typescript resources
       --dots, -d    dotfiles for your home dir
-      --site, -s    Open https://destin.io
+      --sites, -s    Open https://destin.io
 
     Examples:
       npx destin --ts
@@ -38,7 +36,7 @@ import { mainHandler } from './handlers/mainHandler.js'
         default: false,
         alias: 'd',
       },
-      site: {
+      sites: {
         type: 'boolean',
         default: false,
         alias: 's',

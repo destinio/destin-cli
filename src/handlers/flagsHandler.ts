@@ -1,12 +1,10 @@
 import { FlagsType } from '../../index.js'
-import { dotsHandler } from './dotHandlerHandler.js'
-import { siteHandler } from './siteHandler.js'
-import { tsHandler } from './tsHandler.js'
+import { dotsHandler, sitesHandler, tsHandler } from './index.js'
 
-async function flagsHandler({ ts, dots, site }: FlagsType) {
+async function flagsHandler({ ts, dots, sites }: FlagsType) {
   ts && tsHandler()
   dots && dotsHandler()
-  site && siteHandler()
+  sites && sitesHandler()
 }
 
 export { flagsHandler }

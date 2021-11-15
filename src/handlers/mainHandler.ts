@@ -1,7 +1,7 @@
 import inquirer from 'inquirer'
 
 import { clear } from '../utils/clear.js'
-import { appHandler } from './appHandler.js'
+import { appHandler } from './index.js'
 import { welcome } from '../components/welcome.js'
 
 /**
@@ -16,7 +16,7 @@ async function mainHandler() {
     {
       type: 'list',
       name: 'main',
-      message: 'Looking for more information or files?',
+      message: 'Looking for more information or resources?',
       choices: ['exit', 'yes'],
       default: 'exit',
     },

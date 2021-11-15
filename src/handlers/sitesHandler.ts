@@ -1,20 +1,22 @@
 import open from 'open'
 import inquirer from 'inquirer'
 
-async function siteHandler() {
+async function sitesHandler() {
+  let siteName: string
+
   const { site } = await inquirer.prompt([
     {
       type: 'list',
       name: 'site',
-      message: 'Which destin info site would you like to visit',
-      choices: ['destin.io', 'linkedin', 'github'],
-      default: 'desdtin.io',
+      message: 'Select a site to visit 🚀',
+      choices: ['destin.io', 'linkedIn', 'GitHub'],
+      default: 'destin.io',
     },
   ])
 
-  console.log(site)
+  siteName = site
 
-  switch (site) {
+  switch (siteName.toLowerCase()) {
     case 'linkedin':
       open('https://www.linkedin.com/in/destinlee/')
       break
@@ -27,4 +29,4 @@ async function siteHandler() {
   }
 }
 
-export { siteHandler }
+export { sitesHandler }

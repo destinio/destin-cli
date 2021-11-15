@@ -1,7 +1,5 @@
 import inquirer from 'inquirer'
-import { tsHandler } from './tsHandler.js'
-import { dotsHandler } from './dotHandlerHandler.js'
-import { siteHandler } from './siteHandler.js'
+import { dotsHandler, sitesHandler, tsHandler } from './index.js'
 
 const choices = [
   {
@@ -11,12 +9,12 @@ const choices = [
   },
   {
     type: 'choice',
-    name: 'See websites',
+    name: 'Alist of Destin websites',
     value: 'sites',
   },
   {
     type: 'choice',
-    name: 'See Tyepscript configs',
+    name: 'TypeScript configs',
     value: 'ts',
   },
   {
@@ -47,7 +45,7 @@ async function appHandler() {
       dotsHandler()
       break
     case 'sites':
-      siteHandler()
+      sitesHandler()
       break
     default:
       break
