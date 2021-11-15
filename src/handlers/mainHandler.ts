@@ -16,7 +16,7 @@ async function mainHandler() {
     {
       type: 'list',
       name: 'main',
-      message: 'Looking for more?',
+      message: 'Looking for more information or files?',
       choices: ['exit', 'yes'],
       default: 'exit',
     },

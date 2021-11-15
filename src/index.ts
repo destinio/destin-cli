@@ -17,6 +17,7 @@ import { mainHandler } from './handlers/mainHandler.js'
     Options:
       --ts, -t      Helpful Typescript resources
       --dots, -d    dotfiles for your home dir
+      --site, -s    Open https://destin.io
 
     Examples:
       npx destin --ts
@@ -36,6 +37,11 @@ import { mainHandler } from './handlers/mainHandler.js'
         type: 'boolean',
         default: false,
         alias: 'd',
+      },
+      site: {
+        type: 'boolean',
+        default: false,
+        alias: 's',
       },
     },
   })

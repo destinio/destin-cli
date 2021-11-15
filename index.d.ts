@@ -1,4 +1,5 @@
 export interface FlagsType {
   dots: boolean
   ts: boolean
+  site: boolean
 }
