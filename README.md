@@ -12,4 +12,4 @@ To get started run the following command:
 npx destin
 ```
 
-## More to come ✌️
+## More to come ✌️ 🚀
