@@ -11,11 +11,6 @@
     "ts:build": "tsc && chmod +x ./dist/index.js",
     "ts:dev": "tsc --watch"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo $SHELL"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/destinio/destin.git"
