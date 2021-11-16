@@ -9,9 +9,12 @@
   "exports": "./dist/index.js",
   "scripts": {
     "ts:build": "tsc && chmod +x ./dist/index.js",
-    "ts:dev": "tsc --watch",
-    "dev": "node ./dist/index.js",
-    "test": "echo $SHELL"
+    "ts:dev": "tsc --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'HELO WORLD'"
+    }
   },
   "repository": {
     "type": "git",
@@ -34,7 +37,6 @@
   "node": "^12.20.0 || ^14.13.1 || >=16.0.0",
   "dependencies": {
     "chalk": "^4.1.2",
-    "commander": "^8.3.0",
     "inquirer": "^8.2.0",
     "meow": "^10.1.1"
   },
