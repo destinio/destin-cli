@@ -10,7 +10,8 @@
   "scripts": {
     "ts:build": "tsc && chmod +x ./dist/index.js",
     "ts:dev": "tsc --watch",
-    "dev": "node ./dist/index.js"
+    "dev": "node ./dist/index.js",
+    "test": "echo $SHELL"
   },
   "repository": {
     "type": "git",
