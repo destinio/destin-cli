@@ -1,10 +1,14 @@
-import open from 'open'
 import inquirer from 'inquirer'
+import { exec } from 'child_process'
+
+function open(url: string) {
+  const start =
+    process.platform == 'darwin' ? 'open' : process.platform == 'win32' ? 'start' : 'xdg-open'
+  exec(start + ' ' + url)
+}
 
 async function sitesHandler() {
-  let siteName: string
-
-  const { site } = await inquirer.prompt([
+  const { site } = (await inquirer.prompt([
     {
       type: 'list',
       name: 'site',
@@ -12,11 +16,9 @@ async function sitesHandler() {
       choices: ['destin.io', 'linkedIn', 'GitHub'],
       default: 'destin.io',
     },
-  ])
+  ])) as { site: string }
 
-  siteName = site
-
-  switch (siteName.toLowerCase()) {
+  switch (site.toLowerCase()) {
     case 'linkedin':
       open('https://www.linkedin.com/in/destinlee/')
       break
