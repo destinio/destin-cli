@@ -1,25 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
-name: 🚀 NPM publish
-
-on:
-  release:
-    types: [published]
-
+name: Release
+on: [push]
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Setup NODE
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: yarn
-      - run: yarn ts:build
-      - name: NPM Publish
-        run: npm publish
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm semantic-release
         env:
-          token: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
