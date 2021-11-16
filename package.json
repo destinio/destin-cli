@@ -13,7 +13,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo 'HELO WORLD'"
+      "pre-commit": "echo \"[Husky] pre-commit\""
     }
   },
   "repository": {
