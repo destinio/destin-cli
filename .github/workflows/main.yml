@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 12
       - run: yarn
-      - run:
+      - run: yarn ts:build
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1
         with:
