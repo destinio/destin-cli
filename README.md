@@ -16,4 +16,8 @@ npx destin
 
 https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format
 
+perf/feat/fix
+
+💻
+
 ## More to come ✌️ 🚀
