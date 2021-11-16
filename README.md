@@ -12,6 +12,6 @@ To get started run the following command:
 npx destin
 ```
 
-`hummmmmm`
+`hummmmmm2`
 
 ## More to come ✌️ 🚀
