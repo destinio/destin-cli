@@ -9,7 +9,8 @@
   "exports": "./dist/index.js",
   "scripts": {
     "ts:build": "tsc && chmod +x ./dist/index.js",
-    "ts:dev": "tsc --watch"
+    "ts:dev": "tsc --watch",
+    "publish": "./scripts/publish.js"
   },
   "repository": {
     "type": "git",
