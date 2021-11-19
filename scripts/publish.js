@@ -27,8 +27,13 @@ import child_process from 'child_process'
 
     console.log(chalk.bold.yellowBright(`Publishing brb`))
 
-    child_process.exec('npm publish', (_error, stdout, _stderr) => {
-      console.log(stdout)
+    child_process.exec('npm publish', (error, stdout, _stderr) => {
+      if (error) {
+        console.log(`${chalk.redBright.bold('🤔 hummm something went wrong')}`)
+        return
+      }
+
+      console.log(chalk.greenBright.bold(`${stdout} was published 🚀`))
     })
   })
 
