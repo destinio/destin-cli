@@ -35,7 +35,7 @@ function clear() {
 
     exec('npm publish', (error, stdout, _stderr) => {
       if (error) {
-        console.log(`${chalk.redBright.bold('🤔 hummm something went wrong')}`)
+        console.log(`${chalk.redBright.bold(error)}`)
         return
       }
       publishSpinner.text = `${stdout} has been published`
