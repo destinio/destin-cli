@@ -17,15 +17,15 @@ import child_process from 'child_process'
     },
   ])
 
-  child_process.exec(`npm version ${bump}`, (error, stdout, stderr) => {
-    console.log('error', error)
-    console.log('stdout', stdout)
-    console.log('stderr', stderr)
+  child_process.exec(`npm version ${bump}`, (error, stdout, _stderr) => {
+    if(error) {
+      console.log(error)
+      break
+    }
+
+    console.log(chalk.greenBright.bold(`New Version is ${stdout}`))
   })
 
-  const postVersion = await loadJsonFile(`${process.cwd()}/package.json`).version
-
-  console.log(chalk.greenBright.bold(`New Version is ${postVersion}`))
 
   // switch (bump) {
   //   case 'minor':
