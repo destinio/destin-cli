@@ -10,7 +10,7 @@
   "scripts": {
     "ts:build": "tsc && chmod +x ./dist/index.js",
     "ts:dev": "tsc --watch",
-    "publish": "./scripts/publish.js"
+    "pub": "./scripts/publish.js"
   },
   "repository": {
     "type": "git",
