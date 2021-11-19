@@ -19,13 +19,15 @@ import ora from 'ora'
   ])
 
   child_process.exec(`npm version ${bump}`, (error, stdout, _stderr) => {
+    const publishSpinner = ora(`Publishing`).start()
+    publishSpinner.spinner = 'fingerDance'
+
     if (error) {
       console.log(chalk.redBright.bold('Git working directory not clean.'))
       return
     }
 
     child_process.exec('npm publish', (error, stdout, _stderr) => {
-      const publishSpinner = ora(chalk.bold.yellowBright(`Publishing`)).start()
       publishSpinner.spinner('fingerDance')
       if (error) {
         console.log(`${chalk.redBright.bold('🤔 hummm something went wrong')}`)
