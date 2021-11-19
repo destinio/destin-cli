@@ -8,16 +8,14 @@ Learn more about Destin Lee using your command line
 
 To get started run the following command:
 
-```sh
-npx destin
-```
+`npx destin`
+
+`npx destin --help` for more options
 
 ## Semantic Versioning
 
-https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format
-
 perf/feat/fix
 
-💻3
+💻
 
 ## More to come ✌️ 🚀
