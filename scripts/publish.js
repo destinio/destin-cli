@@ -12,15 +12,13 @@ function clear() {
 }
 
 ;(async () => {
-  const preVersion = await loadJsonFile(`${process.cwd()}/package.json`).version
-
   clear()
 
   const { bump } = await inquirer.prompt([
     {
       type: 'list',
       name: 'bump',
-      message: `Current version: ${preVersion}. Select:`,
+      message: `How would you like to bumb the version`,
       choices: ['patch', 'minor', 'major'],
       default: 'patch',
     },
