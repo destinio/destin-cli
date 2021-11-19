@@ -18,14 +18,13 @@ import child_process from 'child_process'
   ])
 
   child_process.exec(`npm version ${bump}`, (error, stdout, _stderr) => {
-    if(error) {
-      console.log(error)
-      break
+    if (error) {
+      console.log(chalk.redBright.bold('Git working directory not clean.'))
+      return
     }
 
     console.log(chalk.greenBright.bold(`New Version is ${stdout}`))
   })
-
 
   // switch (bump) {
   //   case 'minor':
