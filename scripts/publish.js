@@ -27,7 +27,9 @@ import child_process from 'child_process'
 
     console.log(chalk.bold.yellowBright(`Publishing brb`))
 
-    child_process.exec('npm publish')
+    child_process.exec('npm publish', (_error, stdout, _stderr) => {
+      console.log(stdout)
+    })
   })
 
   // switch (bump) {
