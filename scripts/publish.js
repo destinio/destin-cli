@@ -24,6 +24,10 @@ import child_process from 'child_process'
     }
 
     console.log(chalk.greenBright.bold(`New Version is ${stdout}`))
+
+    console.log(chalk.bold.yellowBright(`Publishing brb`))
+
+    child_process.exec('npm publish')
   })
 
   // switch (bump) {
