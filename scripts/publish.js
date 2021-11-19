@@ -4,6 +4,7 @@ import { loadJsonFile } from 'load-json-file'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
 import child_process from 'child_process'
+import gradient from 'gradient-string'
 import ora from 'ora'
 ;(async () => {
   const preVersion = await loadJsonFile(`${process.cwd()}/package.json`).version
@@ -19,7 +20,7 @@ import ora from 'ora'
   ])
 
   child_process.exec(`npm version ${bump}`, (error, stdout, _stderr) => {
-    const publishSpinner = ora(`Publishing`).start()
+    const publishSpinner = ora(`${gradient.rainbow('Publishing')}`).start()
     publishSpinner.spinner = 'fingerDance'
 
     if (error) {
@@ -32,7 +33,7 @@ import ora from 'ora'
         console.log(`${chalk.redBright.bold('🤔 hummm something went wrong')}`)
         return
       }
-      publishSpinner.text(`${stdout} has been published`)
+      publishSpinner.text = `${stdout} has been published`
       publishSpinner.succeed()
       // console.log(chalk.greenBright.bold(`${stdout} was published 🚀`))
     })
