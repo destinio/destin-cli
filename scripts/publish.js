@@ -4,6 +4,7 @@ import { loadJsonFile } from 'load-json-file'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
 import child_process from 'child_process'
+import ora from 'ora'
 ;(async () => {
   const preVersion = await loadJsonFile(`${process.cwd()}/package.json`).version
 
@@ -23,17 +24,16 @@ import child_process from 'child_process'
       return
     }
 
-    console.log(chalk.greenBright.bold(`New Version is ${stdout}`))
-
-    console.log(chalk.bold.yellowBright(`Publishing brb`))
-
     child_process.exec('npm publish', (error, stdout, _stderr) => {
+      const publishSpinner = ora(chalk.bold.yellowBright(`Publishing`)).start()
+      publishSpinner.spinner('fingerDance')
       if (error) {
         console.log(`${chalk.redBright.bold('🤔 hummm something went wrong')}`)
         return
       }
 
-      console.log(chalk.greenBright.bold(`${stdout} was published 🚀`))
+      publishSpinner.succeed()
+      // console.log(chalk.greenBright.bold(`${stdout} was published 🚀`))
     })
   })
 
