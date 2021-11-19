@@ -28,12 +28,11 @@ import ora from 'ora'
     }
 
     child_process.exec('npm publish', (error, stdout, _stderr) => {
-      publishSpinner.spinner('fingerDance')
       if (error) {
         console.log(`${chalk.redBright.bold('🤔 hummm something went wrong')}`)
         return
       }
-
+      publishSpinner.text(`${stdout} has been published`)
       publishSpinner.succeed()
       // console.log(chalk.greenBright.bold(`${stdout} was published 🚀`))
     })
