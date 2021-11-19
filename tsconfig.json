@@ -28,6 +28,6 @@
     /* Advanced Options */
     // "skipLibCheck": true,                           /* Skip type checking of declaration files. */
   },
-  "exclude": ["node_modules", "**/*.spec.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts", "scripts"],
   "include": ["./src/**/*", "index.d.ts"]
 }
