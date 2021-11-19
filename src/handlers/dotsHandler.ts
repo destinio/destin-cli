@@ -1,9 +1,11 @@
 import chalk from 'chalk'
 import ora from 'ora'
+import superb from 'superb'
 import { existsSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
 
 import { dotfiles } from '../files/dots/index.js'
+import { blueHex } from '../utils/colors.js'
 
 const choices = Object.keys(dotfiles)
 
@@ -22,10 +24,10 @@ function copyFilePromise(a: string, file: string, timeout: number) {
   const currentTimeout = timeout === 0 ? 1000 : timeout * 1000 + 1000
   return new Promise((resolve, _reject) => {
     const spinner = ora(`Analyzing .${a}`).start()
-    spinner.spinner = 'fistBump'
+    spinner.spinner = 'fingerDance'
 
     setTimeout(() => {
-      spinner.text = `Created .${a}`
+      spinner.text = `Created ${chalk.hex(blueHex).bold(`.${a}`)} that was ${superb.random()}`
       writeFileSync(`${process.cwd()}/.${a}`, file)
       spinner.succeed()
       resolve({ file: `${a}` })
