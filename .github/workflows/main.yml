@@ -1,25 +1,21 @@
-# This is a basic workflow to help you get started with Actions
-
-name: 🚀 NPM publish
-
-on:
-  release:
-    types: [published]
-
+name: Release
+on: [push]
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup NODE
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: yarn
-      - run: yarn ts:build
-      - name: NPM Publish
-        run: npm publish
+          node-version: '14.17'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Release
         env:
-          token: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

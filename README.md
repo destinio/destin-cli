@@ -12,4 +12,12 @@ To get started run the following command:
 npx destin
 ```
 
+## Semantic Versioning
+
+https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format
+
+perf/feat/fix
+
+💻3
+
 ## More to come ✌️ 🚀
