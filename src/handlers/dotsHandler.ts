@@ -1,4 +1,5 @@
 import chalk from 'chalk'
+import ora from 'ora'
 import { existsSync, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
 
@@ -6,11 +7,30 @@ import { dotfiles } from '../files/dots/index.js'
 
 const choices = Object.keys(dotfiles)
 
-function copyFile(a: string, file: string) {
-  console.log(
-    `${chalk.bold.hex('#91E47A').inverse(` Creating: `)} .${chalk.hex('#FFE774').bold(a)}`
-  )
-  writeFileSync(`${process.cwd()}/.${a}`, file)
+// function copyFile(a: string, file: string) {
+//   console.log(
+//     `${chalk.bold.hex('#91E47A').inverse(` Creating: `)} .${chalk.hex('#FFE774').bold(a)}`
+//   )
+//   writeFileSync(`${process.cwd()}/.${a}`, file)
+// }
+
+interface CpInfo {
+  file: string
+}
+
+function copyFilePromise(a: string, file: string, timeout: number) {
+  const currentTimeout = timeout === 0 ? 1000 : timeout * 1000 + 1000
+  return new Promise((resolve, _reject) => {
+    const spinner = ora(`Analyzing .${a}`).start()
+    spinner.spinner = 'fistBump'
+
+    setTimeout(() => {
+      spinner.text = `Created .${a}`
+      writeFileSync(`${process.cwd()}/.${a}`, file)
+      spinner.succeed()
+      resolve({ file: `${a}` })
+    }, currentTimeout)
+  })
 }
 
 interface AnswearType {
@@ -32,7 +52,7 @@ async function dotsHandler() {
 
   const optionsMap = new Map(Object.entries(dotfiles))
 
-  options.forEach(async (a: string) => {
+  options.forEach(async (a: string, i: number) => {
     const file = optionsMap.get(a)
 
     if (existsSync(process.cwd() + `/.${a}`)) {
@@ -47,12 +67,12 @@ async function dotsHandler() {
       const { override } = confirm
 
       if (override) {
-        file ? copyFile(a, file) : console.log(`Error creating .${a}`)
+        file ? await copyFilePromise(a, file, i) : console.log(`Error creating .${a}`)
       } else {
         console.log('have a good day')
       }
     } else {
-      file ? copyFile(a, file) : console.log(`Error creating .${a}`)
+      file ? await copyFilePromise(a, file, i) : console.log(`Error creating .${a}`)
     }
   })
 }
