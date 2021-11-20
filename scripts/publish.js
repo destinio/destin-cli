@@ -3,7 +3,7 @@
 import { loadJsonFile } from 'load-json-file'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
-import { exec } from 'child_process'
+import { exec, execSync } from 'child_process'
 import gradient from 'gradient-string'
 import ora from 'ora'
 
@@ -12,34 +12,52 @@ function clear() {
 }
 
 ;(async () => {
-  clear()
+  async function run() {
+    clear()
 
-  const { bump } = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'bump',
-      message: `How would you like to bumb the version`,
-      choices: ['patch', 'minor', 'major'],
-      default: 'patch',
-    },
-  ])
+    const { bump } = await inquirer
+      .prompt([
+        {
+          type: 'list',
+          name: 'bump',
+          message: `How would you like to bumb the version`,
+          choices: ['patch', 'minor', 'major'],
+          default: 'patch',
+        },
+      ])
+      .catch(err => {
+        console.log(err)
+      })
 
-  exec(`npm version ${bump}`, (error, stdout, _stderr) => {
-    if (error) {
-      console.log(chalk.redBright.bold('Git working directory not clean.'))
-      return
-    }
-
-    const publishSpinner = ora(`${gradient.rainbow('Publishing')}`).start()
-    publishSpinner.spinner = 'fingerDance'
-
-    exec('npm publish', (error, stdout, _stderr) => {
+    exec(`npm version ${bump}`, (error, stdout, _stderr) => {
       if (error) {
-        console.log(`${chalk.redBright.bold(error)}`)
+        console.log(chalk.redBright.bold('Git working directory not clean. Please'))
         return
       }
-      publishSpinner.text = `${stdout} has been published`
-      publishSpinner.succeed()
+
+      const publishSpinner = ora(`${gradient.rainbow('Publishing')}`).start()
+      publishSpinner.spinner = 'fingerDance'
+
+      exec('npm publish', (error, stdout, _stderr) => {
+        if (error) {
+          console.log(`${chalk.redBright.bold(error)}`)
+          publishSpinner.fail()
+          return new Error(error)
+        }
+        publishSpinner.text = `${stdout} has been published`
+        publishSpinner.succeed()
+      })
     })
+  }
+
+  exec('git status -s', (error, stdout, _stderr) => {
+    if (error) {
+      console.log(error)
+      return error
+    }
+
+    console.log(stdout)
+
+    // run()
   })
 })()
