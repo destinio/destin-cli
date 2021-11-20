@@ -56,8 +56,10 @@ function clear() {
       return error
     }
 
-    console.log(stdout.length)
-
-    // run()
+    if (!stdout.length) {
+      run()
+    } else {
+      console.error('Somthing went wrong with git')
+    }
   })
 })()
