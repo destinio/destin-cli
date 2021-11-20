@@ -56,7 +56,7 @@ function clear() {
       return error
     }
 
-    console.log(stdout)
+    console.log(stdout.length)
 
     // run()
   })
