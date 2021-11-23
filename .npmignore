@@ -4,3 +4,5 @@ src/
 *.lock
 TODO.md
 CODE-OF-CONDUCT.md
+scripts/
+public/
