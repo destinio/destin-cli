@@ -3,7 +3,8 @@
 import { loadJsonFile } from 'load-json-file'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
-import { exec, execSync } from 'child_process'
+import { exec } from 'child_process'
+// TODO: https://github.com/sindresorhus/execa
 import gradient from 'gradient-string'
 import ora from 'ora'
 

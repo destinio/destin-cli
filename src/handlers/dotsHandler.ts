@@ -16,10 +16,6 @@ const choices = Object.keys(dotfiles)
 //   writeFileSync(`${process.cwd()}/.${a}`, file)
 // }
 
-interface CpInfo {
-  file: string
-}
-
 function copyFilePromise(a: string, file: string, timeout: number) {
   const currentTimeout = timeout === 0 ? 1000 : timeout * 1000 + 1000
   return new Promise((resolve, _reject) => {
@@ -35,28 +31,8 @@ function copyFilePromise(a: string, file: string, timeout: number) {
   })
 }
 
-interface AnswearType {
-  options: string[]
-}
-
-async function dotsHandler() {
-  const answears = (await inquirer.prompt([
-    {
-      type: 'checkbox',
-      name: 'options',
-      choices,
-      message: 'Which dotfiles would you like to copy?',
-      default: false,
-    },
-  ])) as AnswearType
-
-  const { options } = answears
-
-  const optionsMap = new Map(Object.entries(dotfiles))
-
-  options.forEach(async (a: string, i: number) => {
-    const file = optionsMap.get(a)
-
+async function askUserOverride(file: string, a: string, i: number) {
+  return new Promise<string>(async (resolve, reject) => {
     if (existsSync(process.cwd() + `/.${a}`)) {
       const confirm = await inquirer.prompt([
         {
@@ -77,6 +53,41 @@ async function dotsHandler() {
       file ? await copyFilePromise(a, file, i) : console.log(`Error creating .${a}`)
     }
   })
+}
+
+interface AnswearType {
+  options: string[]
+}
+
+async function dotsHandler() {
+  const answears = await inquirer.prompt<AnswearType>([
+    {
+      type: 'checkbox',
+      name: 'options',
+      choices,
+      message: 'Which dotfiles would you like to copy?',
+      default: false,
+    },
+  ])
+
+  const { options } = answears
+
+  const optionsMap = new Map(Object.entries(dotfiles))
+
+  // CLEAN UP START
+  // Promise.all
+  // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
+
+  let promArray: string[] = []
+
+  options.forEach(async (a: string, i: number) => {
+    const file = optionsMap.get(a)!
+    const fileProm = await askUserOverride(file, a, i)
+
+    promArray.push(fileProm)
+  })
+
+  const allAnswears = await Promise.all<string>(promArray)
 }
 
 export { dotsHandler }
