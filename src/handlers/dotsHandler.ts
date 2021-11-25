@@ -1,20 +1,11 @@
 import chalk from 'chalk'
 import ora from 'ora'
 import superb from 'superb'
-import { existsSync, writeFileSync } from 'fs'
+import { existsSync, fstat, writeFileSync } from 'fs'
 import inquirer from 'inquirer'
 
 import { dotfiles } from '../files/dots/index.js'
 import { blueHex } from '../utils/colors.js'
-
-const choices = Object.keys(dotfiles)
-
-// function copyFile(a: string, file: string) {
-//   console.log(
-//     `${chalk.bold.hex('#91E47A').inverse(` Creating: `)} .${chalk.hex('#FFE774').bold(a)}`
-//   )
-//   writeFileSync(`${process.cwd()}/.${a}`, file)
-// }
 
 function copyFilePromise(a: string, file: string, timeout: number) {
   const currentTimeout = timeout === 0 ? 1000 : timeout * 1000 + 1000
@@ -55,39 +46,58 @@ async function askUserOverride(file: string, a: string, i: number) {
   })
 }
 
+// ===================
+
+async function createDotFiles(filesToCreate: string[]) {
+  // CLEAN UP START
+  // Promise.all
+  // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
+
+  // NEW
+  const rawDotFiles = new Map(Object.entries(dotfiles))
+
+  await Promise.all(
+    filesToCreate.map(async fileName => {
+      // check if files ex
+      if (existsSync(`${process.cwd()}/.${fileName}`)) {
+        console.log('it there')
+      } else {
+        console.log('it not there')
+      }
+      // if file = true ask if they awant to overide
+      // else create file
+    })
+  )
+}
+
 interface AnswearType {
-  options: string[]
+  selectedFiles: string[]
 }
 
 async function dotsHandler() {
   const answears = await inquirer.prompt<AnswearType>([
     {
       type: 'checkbox',
-      name: 'options',
-      choices,
+      name: 'selectedFiles',
+      choices: Object.keys(dotfiles),
       message: 'Which dotfiles would you like to copy?',
       default: false,
     },
   ])
 
-  const { options } = answears
+  const { selectedFiles } = answears
 
-  const optionsMap = new Map(Object.entries(dotfiles))
+  await createDotFiles(selectedFiles)
 
-  // CLEAN UP START
-  // Promise.all
-  // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
+  // OLD
+  // options.forEach(async (a: string, i: number) => {
+  //   const file = rawDotFiles.get(a)!
+  //   const fileProm = await askUserOverride(file, a, i)
 
-  let promArray: string[] = []
+  //   promArray.push(fileProm)
+  // })
 
-  options.forEach(async (a: string, i: number) => {
-    const file = optionsMap.get(a)!
-    const fileProm = await askUserOverride(file, a, i)
-
-    promArray.push(fileProm)
-  })
-
-  const allAnswears = await Promise.all<string>(promArray)
+  // const allAnswears = await Promise.all<string>(promArray)
 }
 
 export { dotsHandler }
