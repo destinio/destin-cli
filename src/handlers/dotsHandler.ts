@@ -60,9 +60,17 @@ async function createDotFiles(filesToCreate: string[]) {
     filesToCreate.map(async fileName => {
       // check if files ex
       if (existsSync(`${process.cwd()}/.${fileName}`)) {
-        console.log('it there')
+        const { override } = await inquirer.prompt<{ override: Boolean }>({
+          type: 'confirm',
+          name: 'override',
+          default: false,
+          message: `.${fileName} already there. Override??`,
+        })
+
+        console.log(override)
       } else {
         console.log('it not there')
+        writeFileSync(`${process.cwd()}/.${fileName}`, rawDotFiles.get(fileName)!)
       }
       // if file = true ask if they awant to overide
       // else create file
