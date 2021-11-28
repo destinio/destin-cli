@@ -3,11 +3,27 @@ import { URL } from 'url'
 import fs from 'fs-jetpack'
 
 async function getAvalibleFiles() {
-  const humm = new URL('../../dist/files/dots', import.meta.url).pathname
-  console.log(fs.list(humm))
+  try {
+    const { pathname } = new URL('./dots', import.meta.url)
+    console.log(pathname)
+    const files = await fs.listAsync(pathname)
+
+    if (!files) {
+      throw new Error('No Files found')
+    }
+
+    const regex = new RegExp(/\.map/)
+
+    return files.filter(f => !regex.test(f)).map(f => f.split('.')[0])
+  } catch (error) {
+    throw new Error('Something went wrong with getAvalibleFiles')
+  }
 }
 
-getAvalibleFiles()
+async function dotsHandler() {
+  const files = await getAvalibleFiles()
+  console.log(files)
+}
 
 // import { dotfiles } from '../files/dots/index.js'
 // const rawDotFiles = new Map(Object.entries(dotfiles))
@@ -32,4 +48,4 @@ getAvalibleFiles()
 //   const { selectedFiles } = answears
 // }
 
-// export { dotsHandler }
+export { dotsHandler }

@@ -1,5 +1,5 @@
 import { sitesHandler } from './sitesHandler.js'
-import { dotsHandler } from './dotsHandler.js'
+import { dotsHandler } from './dotsHandler/index.js'
 import { appHandler } from './appHandler.js'
 import { mainHandler } from './mainHandler.js'
 import { tsHandler } from './tsHandler.js'
