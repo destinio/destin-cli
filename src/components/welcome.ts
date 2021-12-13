@@ -25,7 +25,7 @@ const freeTime = [
 function welcome() {
   clear()
   header('Welcome to the Destin Lee Resume CLI')
-  log(`Husband, Father of two, Software Developer. Talent Manager. Code Whisperer`)
+  log(`Husband, Father of Two, Software Developer. Talent Manager. Code Whisperer`)
   header('You can learn more at the following sites', greenHex)
   links(myLinks)
   header(`When I'm not working I like to:`)
@@ -33,9 +33,7 @@ function welcome() {
   header(`Currently working on:`, yellowHex)
   list(['JS CLI automation', 'NextJS Website'])
   header(`Currently learning:`, orangeHex)
-  list(['Advanced TypeScript'])
-  log('')
-  header('If you need any free resources see below:')
+  list(['Advanced TypeScript\n'])
 }
 
 export { welcome }
