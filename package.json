@@ -1,7 +1,7 @@
 {
   "name": "destin",
-  "version": "1.15.1",
-  "description": "Destin CLI - Helpful developer resources",
+  "version": "1.16.0",
+  "description": "About Destin Lee the developer",
   "bin": {
     "destin": "./dist/index.js"
   },

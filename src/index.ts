@@ -13,29 +13,13 @@ import { flagsHandler, mainHandler } from './handlers/index.js'
       npx destin [option]
 
     Options:
-      --ts, -t      Helpful Typescript resources
-      --dots, -d    dotfiles for your home dir
-      --sites, -s    Open https://destin.io
-
-    Examples:
-      npx destin --ts
-      npx destin --dots
+      --sites, -s    See relative links
   `
 
   const mainCli = meow(helperText, {
     importMeta: import.meta,
     booleanDefault: undefined,
     flags: {
-      ts: {
-        type: 'boolean',
-        default: false,
-        alias: 't',
-      },
-      dots: {
-        type: 'boolean',
-        default: false,
-        alias: 'd',
-      },
       sites: {
         type: 'boolean',
         default: false,

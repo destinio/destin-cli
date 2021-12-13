@@ -1,9 +1,7 @@
 import { FlagsType } from '../../index.js'
-import { dotsHandler, sitesHandler, tsHandler } from './index.js'
+import { sitesHandler } from './index.js'
 
-async function flagsHandler({ ts, dots, sites }: FlagsType) {
-  ts && tsHandler()
-  dots && dotsHandler()
+async function flagsHandler({ sites }: FlagsType) {
   sites && sitesHandler()
 }
 

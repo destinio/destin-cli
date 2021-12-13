@@ -13,7 +13,7 @@ async function sitesHandler() {
       type: 'list',
       name: 'site',
       message: 'Select a site to visit 🚀',
-      choices: ['destin.io', 'linkedIn', 'GitHub'],
+      choices: ['destin.io', 'linkedIn', 'GitHub', 'exit'],
       default: 'destin.io',
     },
   ])) as { site: string }
@@ -25,8 +25,11 @@ async function sitesHandler() {
     case 'github':
       open('https://github.com/destinio')
       break
-    default:
+    case 'destin.io':
       open('https://destin.io')
+      break
+    default:
+      console.log('Have a good one :)')
       break
   }
 }

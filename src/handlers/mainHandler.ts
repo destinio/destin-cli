@@ -16,7 +16,7 @@ async function mainHandler() {
     {
       type: 'list',
       name: 'main',
-      message: 'Looking for more information or resources?',
+      message: 'Looking for more information about Destin?',
       choices: ['exit', 'yes'],
       default: 'exit',
     },

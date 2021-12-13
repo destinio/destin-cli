@@ -1,26 +1,16 @@
 import inquirer from 'inquirer'
-import { dotsHandler, sitesHandler, tsHandler } from './index.js'
+import { sitesHandler } from './index.js'
 
 const choices = [
   {
     type: 'choice',
-    name: 'exit',
-    value: 'exit',
-  },
-  {
-    type: 'choice',
-    name: 'Alist of Destin websites',
+    name: 'A list of Destin websites',
     value: 'sites',
   },
   {
     type: 'choice',
-    name: 'TypeScript configs',
-    value: 'ts',
-  },
-  {
-    type: 'choice',
-    name: 'See dotfiles for your zsh world',
-    value: 'dots',
+    name: 'exit',
+    value: 'exit',
   },
 ]
 
@@ -31,19 +21,11 @@ async function appHandler() {
       name: 'main',
       message: 'What can I help you with?',
       choices,
-      default: 'exit',
+      default: 'sites',
     },
   ])
 
-  console.log(main)
-
   switch (main) {
-    case 'ts':
-      tsHandler()
-      break
-    case 'dots':
-      dotsHandler()
-      break
     case 'sites':
       sitesHandler()
       break
