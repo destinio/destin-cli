@@ -6,3 +6,6 @@ TODO.md
 CODE-OF-CONDUCT.md
 scripts/
 public/
+tsconfig.json
+.prettierrc
+.editorconfig
